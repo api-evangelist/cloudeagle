@@ -1,0 +1,40 @@
+aid: cloudeagle
+url: >-
+  https://raw.githubusercontent.com/api-evangelist/cloudeagle/refs/heads/main/apis.yml
+name: CloudEagle
+tags:
+  - SaaS Management
+  - Software Procurement
+  - Cost Optimization
+type: Index
+image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+access: 3rd-Party
+created: '2026-03-16'
+modified: '2026-03-16'
+position: Consumer
+description: >-
+  CloudEagle is a SaaS management and procurement platform that helps
+  organizations discover, manage, optimize, and govern their software spending
+  and vendor relationships.
+apis:
+  - aid: cloudeagle:cloudeagle-api
+    name: CloudEagle API
+    tags:
+      - SaaS Management
+      - Software Procurement
+    humanURL: https://www.cloudeagle.ai/
+    properties:
+      - url: https://www.cloudeagle.ai/
+        type: Documentation
+    description: >-
+      CloudEagle API provides access to SaaS management, procurement, and
+      cost optimization features.
+common:
+  - type: Website
+    url: https://www.cloudeagle.ai/
+  - type: Privacy Policy
+    url: https://www.cloudeagle.ai/privacy-policy
+maintainers:
+  - FN: Kin Lane
+    email: kin@apievangelist.com
+specificationVersion: '0.19'
