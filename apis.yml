@@ -3,9 +3,9 @@ url: >-
   https://raw.githubusercontent.com/api-evangelist/cloudeagle/refs/heads/main/apis.yml
 name: CloudEagle
 tags:
+  - Cost Optimization
   - SaaS Management
   - Software Procurement
-  - Cost Optimization
 type: Index
 image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
 access: 3rd-Party
