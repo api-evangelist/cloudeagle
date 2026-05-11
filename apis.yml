@@ -73,6 +73,28 @@ common:
     url: https://www.cloudeagle.ai/privacy-policy
   - type: Naftiko Capabilities
     url: capabilities/cloudeagle-capabilities.yml
+integrations:
+  - name: Analytics Platforms
+  - name: Cloud services
+  - name: Collaboaration
+  - name: Conferencing
+  - name: CRM
+  - name: Design
+  - name: Devops
+  - name: Email Marketing
+  - name: ERP
+  - name: Finance
+  - name: Help Desk
+  - name: HR
+  - name: Identity Management
+  - name: Marketplace Apps
+  - name: Network Security
+  - name: Others
+  - name: Procurement
+  - name: Productivity
+  - name: Project Management
+  - name: Sales Acceleration
+  - name: Sales & Marketing Software
 maintainers:
   - FN: Kin Lane
     email: kin@apievangelist.com
