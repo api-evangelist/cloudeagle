@@ -73,7 +73,7 @@ common:
     url: https://www.cloudeagle.ai/product/saas-management
   - type: PrivacyPolicy
     url: https://www.cloudeagle.ai/privacy-policy
-  - type: Naftiko Capabilities
+  - type: X-NaftikoCapabilities
     url: capabilities/cloudeagle-capabilities.yml
 integrations:
   - name: Analytics Platforms
