@@ -61,6 +61,8 @@ apis:
       account-level settings, and integration documentation is shared
       directly with onboarded customers.
 common:
+  - type: DomainSecurity
+    url: security/cloudeagle-domain-security.yml
   - type: LinkedIn
     url: https://www.linkedin.com/company/cloudeagle
   - type: Website
