@@ -4,145 +4,70 @@ schema: https://raw.githubusercontent.com/api-evangelist/interface-research/main
 provider: CloudEagle.ai
 providerId: cloudeagle
 created: '2026-05-04'
-# Provenance stamped 2026-08-11: this artifact was written by the API Evangelist
-# bulk sweep dated 2026-05-04, not harvested from the provider. See roadmap#35.
-method: generated
-modified: '2026-05-04'
-tags:
-  - Access Governance
-  - Cost Optimization
-  - License Management
-  - Procurement
-  - SaaS Management
-  - Shadow AI
-  - Shadow IT
-  - Software Procurement
-  - Vendor Management
-description: Machine-readable plans and pricing scaffold for this API provider. Conforms to the API Commons
-  Plans schema. Tier limits and prices are scaffold defaults; replace with provider-published values.
-plans:
-  - id: cloudeagle-free
-    name: Free
-    type: freemium
-    description: Free entry tier for the CloudEagle.ai API surface. Intended for evaluation, prototyping,
-      and low-volume integrations. Real limits and pricing must be reconciled with the provider's published
-      plan documentation.
-    entries:
-      - label: API Requests
-        description: Monthly API request quota across all included endpoints
-        name: api_requests
-        type: quota
-        metric: requests
-        limit: 1000
-        timeFrame: month
-        geo: global
-        domains: []
-        unit: 1
-        price: '0.00'
-        userMultiplied: false
-      - label: Rate Limit
-        description: Maximum requests per minute on the free tier
-        name: rate_limit
-        type: rate
-        metric: requests_per_minute
-        limit: 10
-        timeFrame: minute
-        geo: global
-        domains: []
-        unit: 1
-        price: '0.00'
-        userMultiplied: false
-    elements:
-      - name: Public Documentation
-      - name: Community Support
-      - name: Sandbox Access
-      - name: CloudEagle API
-  - id: cloudeagle-pro
-    name: Professional
-    type: paid
-    description: Production tier for CloudEagle.ai. Provides higher quotas, priority support, and access
-      to the broader API portfolio. Pricing placeholder; align with the provider's pricing page.
-    entries:
-      - label: API Requests
-        description: Monthly API request quota
-        name: api_requests
-        type: quota
-        metric: requests
-        limit: 100000
-        timeFrame: month
-        geo: global
-        domains: []
-        unit: 1
-        price: TBD
-        userMultiplied: false
-      - label: Rate Limit
-        description: Maximum requests per minute on the professional tier
-        name: rate_limit
-        type: rate
-        metric: requests_per_minute
-        limit: 100
-        timeFrame: minute
-        geo: global
-        domains: []
-        unit: 1
-        price: '0.00'
-        userMultiplied: false
-      - label: Overage
-        description: Per-request price after monthly quota is exceeded
-        name: overage
-        type: metered
-        metric: requests
-        limit: -1
-        timeFrame: month
-        geo: global
-        domains: []
-        unit: 1000
-        price: TBD
-        userMultiplied: false
-    elements:
-      - name: All Production Endpoints
-      - name: Email Support
-      - name: SLA Targets
-      - name: Webhook Subscriptions
-      - name: CloudEagle API
-  - id: cloudeagle-enterprise
-    name: Enterprise
-    type: enterprise
-    description: Custom-negotiated tier for CloudEagle.ai. Includes dedicated capacity, contractual SLAs,
-      security review, data residency options, and named technical account management.
-    entries:
-      - label: API Requests
-        description: Negotiated request volume; -1 indicates uncapped subject to fair use
-        name: api_requests
-        type: quota
-        metric: requests
-        limit: -1
-        timeFrame: month
-        geo: configurable
-        domains: []
-        unit: 1
-        price: custom
-        userMultiplied: false
-      - label: Rate Limit
-        description: Negotiated burst and steady-state rate
-        name: rate_limit
-        type: rate
-        metric: requests_per_minute
-        limit: 1000
-        timeFrame: minute
-        geo: configurable
-        domains: []
-        unit: 1
-        price: custom
-        userMultiplied: false
-    elements:
-      - name: Unlimited / Negotiated Volume
-      - name: 24/7 Dedicated Support
-      - name: Contractual SLA
-      - name: Security & Compliance Review
-      - name: Dedicated Account Manager
-      - name: Custom Data Residency
-      - name: CloudEagle API
+modified: '2026-09-05'
+generated: '2026-09-05'
+method: searched
+source: https://www.cloudeagle.ai/pricing
+description: >-
+  CloudEagle publishes NO prices. https://www.cloudeagle.ai/pricing (HTTP 200,
+  fetched 2026-09-05) is a module chooser: five product modules, each listing
+  included capabilities and ending in a "Book a Personalized Demo" call to
+  action. No plan names, no per-seat or per-app rates, no currency, no billing
+  period, no quotas and no overage terms appear anywhere on the page. There is
+  no API-specific plan or metered API tier of any kind.
+plan_count: 0
+plans: []
+
+replaces:
+  previous_method: generated
+  previous_note: >-
+    REPLACED a 2026-05-04 bulk-sweep scaffold that invented three tiers
+    ("Free / Pro / Enterprise") with invented quotas (1,000 requests/month,
+    10 requests/minute, a 1,000 rpm enterprise rate). None of those numbers came
+    from CloudEagle and none of them is real. A searched zero is the correct
+    record; the scaffold was fabricated content and has been removed.
+
+modules_offered:
+  note: >-
+    What the pricing page actually presents, recorded verbatim as product
+    modules — these are NOT priced plans and carry no cost, quota or limit.
+  modules:
+  - name: AI Governance
+    cta: Book a Personalized Demo
+  - name: SaaS Security & Compliance
+    cta: Book a Personalized Demo
+  - name: Identity Governance
+    cta: Book a Personalized Demo
+  - name: SaaS Management
+    cta: Book a Personalized Demo
+  - name: SaaS Procurement
+    cta: Book a Personalized Demo
+
+trial:
+  offered: true
+  url: https://www.cloudeagle.ai/free-trial
+  terms_published: false
+  note: A "Free Trial" CTA exists; no duration, limits or conversion terms are published.
+
+marketplaces:
+  note: >-
+    CloudEagle is listed on cloud marketplaces, where a private-offer price may
+    exist per customer. No public list price is shown on either listing.
+  listings:
+  - name: AWS Marketplace
+    url: https://aws.amazon.com/marketplace/pp/prodview-jvntuequsjjdk
+    http_status: 200
+  - name: Microsoft Azure Marketplace
+    url: https://azuremarketplace.microsoft.com/en-US/marketplace/apps/cloudeagle.cloudeagle
+    http_status: 200
+
+discrepancy:
+  note: >-
+    https://www.cloudeagle.ai/llms.txt describes the pricing page as "Transparent
+    flat pricing with no custom development required". The page it points at
+    contains no price at all. Recorded because it is a machine-readable claim
+    CloudEagle makes about itself that its own page does not support.
+
 maintainers:
-  - FN: Kin Lane
-    email: kin@apievangelist.com
+- FN: Kin Lane
+  email: kin@apievangelist.com

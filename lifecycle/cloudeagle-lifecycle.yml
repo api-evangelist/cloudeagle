@@ -1,0 +1,80 @@
+generated: '2026-09-05'
+method: searched
+source: >-
+  https://www.cloudeagle.ai/llms.txt + https://www.cloudeagle.ai/product-update +
+  live probes of status.cloudeagle.ai, trust.cloudeagle.ai,
+  https://www.cloudeagle.ai/status and https://www.cloudeagle.ai/changelog
+provider: CloudEagle.ai
+providerId: cloudeagle
+description: >-
+  API lifecycle posture for CloudEagle. Searched CloudEagle's full public surface
+  — llms.txt lists 70+ pages and none of them is a developer, API, versioning,
+  deprecation, SLA or status page. The findings below are therefore mostly
+  documented ABSENCES, each backed by a probe.
+
+versioning:
+  policy_published: false
+  scheme: none
+  url: null
+  note: >-
+    No API version appears in any public CloudEagle material — not in the URL
+    space, not in the changelog, not in llms.txt. There is no published contract
+    to version.
+
+deprecation:
+  policy_published: false
+  url: null
+  sunset_header: not observed
+  deprecation_header: not observed
+  rfc8594: false
+  deprecated_operations: []
+  note: >-
+    No deprecation policy, no notice period, no RFC 8594 Sunset/Deprecation
+    header usage, and no deprecated-operation list — there is no OpenAPI from
+    which to derive one. NO Deprecation pointer is emitted.
+
+status_page:
+  published: false
+  url: null
+  probes:
+  - url: https://status.cloudeagle.ai/
+    result: DNS does not resolve
+  - url: https://www.cloudeagle.ai/status
+    http_status: 404
+  - url: https://trust.cloudeagle.ai/
+    result: DNS does not resolve
+  note: >-
+    No status page, uptime history or incident feed was found on any host, and
+    none is linked from llms.txt. NO StatusPage pointer is emitted.
+
+sla:
+  published: false
+  url: null
+  note: >-
+    No public SLA, uptime commitment or support-response target. Terms are at
+    https://www.cloudeagle.ai/terms-and-conditions and
+    https://www.cloudeagle.ai/evaluation-agreement-terms; neither is an API SLA.
+
+release_notes:
+  published: true
+  url: https://www.cloudeagle.ai/product-update
+  scheme: date-only
+  latest: '2026-04-30'
+  api_scoped: false
+  note: >-
+    A real dated product changelog exists, but it is product-scoped: no entry
+    names an API version, endpoint, breaking change or deprecation.
+  see: changelog/cloudeagle-changelog.yml
+
+support:
+  url: https://www.cloudeagle.ai/contact
+  help_center: https://help.cloudeagle.ai/
+  help_center_public: false
+  help_center_note: >-
+    help.cloudeagle.ai 307-redirects to https://login.cloudeagle.ai/?location=%2F
+    — the knowledge base is customer-only, which is where any API guidance would
+    live.
+
+maintainers:
+- FN: Kin Lane
+  email: kin@apievangelist.com

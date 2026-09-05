@@ -1,0 +1,94 @@
+generated: '2026-09-05'
+method: probed
+source: Live anonymous probes of https://api.cloudeagle.ai/ and https://mcp.cloudeagle.ai/ on 2026-09-05
+provider: CloudEagle.ai
+providerId: cloudeagle
+format: vendor-json
+rfc9457: false
+description: >-
+  CloudEagle publishes no error reference and no OpenAPI, so nothing could be
+  derived from 4xx/5xx response definitions. What is recorded here was observed
+  on the wire and nothing else. Two different surfaces return two DIFFERENT and
+  incompatible error envelopes, which is itself the finding an integrator needs.
+
+envelopes:
+
+- surface: CloudEagle enterprise REST API
+  host: api.cloudeagle.ai
+  media_type: application/json
+  members:
+  - name: status
+    type: integer
+    note: HTTP status repeated in the body
+  - name: message
+    type: string
+  - name: data
+    type: string|object
+  - name: requestId
+    type: string|null
+    note: Correlation id for support; null when unauthenticated
+  example: '{"status":401,"message":"Not authorized","data":"Not authorized","requestId":null}'
+
+- surface: CloudEagle.ai MCP Server
+  host: mcp.cloudeagle.ai
+  media_type: application/json
+  members:
+  - name: error
+    type: string
+  example: '{"error": "Missing auth token. Connect via the OAuth flow to authenticate."}'
+  note: >-
+    This is NOT a JSON-RPC error object — there is no jsonrpc, id or
+    error.code/error.message structure. An MCP client that parses JSON-RPC
+    strictly will not understand this body. It is also not the same envelope the
+    REST host returns.
+
+problem_types:
+
+- id: not-authorized
+  status: 401
+  surface: api.cloudeagle.ai
+  title: Not authorized
+  observed_body: '{"status":401,"message":"Not authorized","data":"Not authorized","requestId":null}'
+  remediation: >-
+    Present the API token generated in the CloudEagle tenant. The header the
+    token belongs in is not published; obtain it from CloudEagle in-product
+    developer settings.
+  evidence:
+    url: https://api.cloudeagle.ai/
+    http_status: 401
+    fetched: '2026-09-05'
+  note: >-
+    Returned on EVERY path probed, including a control path that does not exist
+    (/zzz-does-not-exist-9876). The host does not distinguish 404 from 401
+    anonymously, so an unauthenticated caller cannot tell a missing resource from
+    a forbidden one.
+
+- id: missing-auth-token
+  status: 401
+  surface: mcp.cloudeagle.ai
+  title: Missing auth token
+  observed_body: '{"error": "Missing auth token. Connect via the OAuth flow to authenticate."}'
+  remediation: >-
+    Complete the OAuth 2.0 authorization-code + PKCE flow at
+    https://mcp.cloudeagle.ai/authorize and present the resulting token.
+  evidence:
+    url: https://mcp.cloudeagle.ai/mcp
+    http_status: 401
+    method: POST tools/list
+    fetched: '2026-09-05'
+  note: >-
+    No RFC 9728 WWW-Authenticate challenge header accompanies this 401, so a
+    spec-compliant MCP client cannot discover the protected-resource metadata
+    from the response and must guess the /.well-known/ path.
+
+not_found:
+  error_reference_page: >-
+    None. No public error code reference, status-code table or troubleshooting
+    reference exists on any CloudEagle host.
+  rfc9457_support: >-
+    Not implemented on either surface. Neither responds with
+    application/problem+json.
+
+maintainers:
+- FN: Kin Lane
+  email: kin@apievangelist.com

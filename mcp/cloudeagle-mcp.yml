@@ -1,0 +1,184 @@
+generated: '2026-09-05'
+method: probed
+source: >-
+  https://mcp.cloudeagle.ai/.well-known/oauth-protected-resource +
+  https://mcp.cloudeagle.ai/.well-known/oauth-authorization-server +
+  live anonymous POST tools/list and initialize against
+  https://mcp.cloudeagle.ai/mcp +
+  https://www.cloudeagle.ai/blogs/mcp-server-saas-ai-identity-insights
+name: CloudEagle.ai MCP Server
+description: >-
+  A live, OAuth-protected Model Context Protocol server served from CloudEagle's
+  own hostname mcp.cloudeagle.ai. CloudEagle announced it publicly as a way for
+  IT, Security, Finance and Procurement teams to query their live SaaS,
+  AI-application, licence, contract and identity data from Claude, ChatGPT,
+  Gemini or Copilot. It is the ONLY machine-readable, agent-reachable surface
+  CloudEagle publishes: there is no public OpenAPI, no developer portal and no
+  published REST reference.
+
+deployment:
+  mode: remote
+  endpoint: https://mcp.cloudeagle.ai
+  auth: oauth
+  verified: probed
+  endpoint_note: >-
+    The endpoint recorded here is the RFC 9728 resource identifier the provider
+    declares for itself ("resource": "https://mcp.cloudeagle.ai"). A JSON-RPC
+    POST to https://mcp.cloudeagle.ai/mcp returns the server's OAuth challenge,
+    but so does every other path on the host including one that does not exist,
+    so the exact transport path could NOT be confirmed anonymously and is not
+    asserted here. CloudEagle's own setup instructions tell an operator to paste
+    "your CloudEagle MCP server URL" from their tenant, so the URL a customer is
+    handed may be tenant-qualified. No path was invented.
+  install: null
+  package: null
+  package_note: >-
+    No stdio package ships for this server. npm (cloudeagle, @cloudeagle/mcp,
+    cloudeagle-mcp, @cloudeagle/sdk, @cloudeagle-ai/mcp and a registry-wide
+    text search for "cloudeagle") and PyPI (cloudeagle, cloudeagle-ai,
+    cloudeagle-mcp) all return 404 / zero results. This is a remote endpoint
+    only — an MCP client POSTs to it after an OAuth authorization-code + PKCE
+    flow; nothing is installed on a machine first.
+
+# ---------------------------------------------------------------------------
+# OWNERSHIP / PROVENANCE — pipeline STEP 0c
+# ---------------------------------------------------------------------------
+ownership:
+  verdict: served-by-provider-on-its-own-domain
+  statement: >-
+    mcp.cloudeagle.ai is CloudEagle's own hostname. The TLS certificate is issued
+    to CN=mcp.cloudeagle.ai with that single SAN; the RFC 8414 metadata names
+    https://mcp.cloudeagle.ai as its own issuer and every endpoint it advertises
+    is under that origin; and the /authorize page renders a first-party consent
+    screen titled "Connect to CloudEagle" that asks for the tenant subdomain the
+    operator uses to sign in to CloudEagle (e.g. acme from acme.cloudeagle.ai).
+    CloudEagle also announced this server itself on its own blog. Nothing in the
+    discovery documents points at a sibling brand or a third-party product.
+  evidence:
+  - fact: TLS certificate subject
+    value: CN=mcp.cloudeagle.ai (Google Trust Services WR3, SAN = mcp.cloudeagle.ai only)
+  - fact: OAuth issuer
+    value: https://mcp.cloudeagle.ai
+  - fact: consent screen
+    value: '"Connect to CloudEagle" — asks for the CloudEagle tenant id'
+  - fact: provider announcement
+    value: https://www.cloudeagle.ai/blogs/mcp-server-saas-ai-identity-insights
+  built_by_provider: true
+
+status: live
+transport: streamable-http
+protocol_version_probed: '2025-06-18'
+
+# ---------------------------------------------------------------------------
+# TOOLS — auth-gated. NOT enumerated. Nothing invented.
+# ---------------------------------------------------------------------------
+tools: []
+tools_note: >-
+  The live tool list is auth-gated and was NOT captured. An anonymous
+  POST {"jsonrpc":"2.0","id":1,"method":"tools/list"} and an anonymous
+  initialize both return HTTP 401
+  {"error": "Missing auth token. Connect via the OAuth flow to authenticate."}
+  from server: uvicorn. Enumerating the real tools and their inputSchema requires
+  an authenticated OAuth token from a CloudEagle tenant. CloudEagle publishes no
+  tool list anywhere public — https://www.cloudeagle.ai/llms.txt does not mention
+  the MCP server at all — so no tool names are recorded here, and no candidate
+  tools were derived because there is no OpenAPI to derive them from.
+  NOTE: the server does NOT return an RFC 9728 WWW-Authenticate challenge header
+  on its 401; a client must find the protected-resource document by convention.
+
+capability_domains_claimed:
+  note: >-
+    Query domains CloudEagle states the server answers over, quoted from its own
+    launch post. These are marketing-stated capability areas, NOT tool names and
+    NOT an inputSchema. Do not treat them as an interface.
+  source: https://www.cloudeagle.ai/blogs/mcp-server-saas-ai-identity-insights
+  domains:
+  - audience: IT
+    claims: application usage, user access, unassigned licences
+  - audience: Security
+    claims: unsanctioned AI tool detection, access-elevation monitoring
+  - audience: Finance / Procurement
+    claims: contract expiry tracking, licence optimisation, renewal status
+
+authorization:
+  protected_resource: https://mcp.cloudeagle.ai/.well-known/oauth-protected-resource
+  authorization_server: https://mcp.cloudeagle.ai/.well-known/oauth-authorization-server
+  issuer: https://mcp.cloudeagle.ai
+  authorization_endpoint: https://mcp.cloudeagle.ai/authorize
+  token_endpoint: https://mcp.cloudeagle.ai/token
+  registration_endpoint: https://mcp.cloudeagle.ai/register
+  dynamic_client_registration: true
+  grant_types:
+  - authorization_code
+  response_types:
+  - code
+  code_challenge_methods:
+  - S256
+  token_endpoint_auth_methods:
+  - none
+  scopes_supported: null
+  scopes_note: >-
+    The authorization-server metadata advertises NO scopes_supported, and
+    CloudEagle documents no permission model for this server publicly. An agent
+    cannot request least-privilege access because there is nothing to request.
+    No scopes/ artifact was written for this reason — inventing one would assert
+    a permission surface CloudEagle does not publish.
+  tenant_selection: >-
+    The /authorize page is a tenant chooser: it asks for "your tenant id — the
+    subdomain you use to sign in to CloudEagle (e.g. acme from acme.cloudeagle.ai)"
+    before any credential is presented.
+
+x-evidence:
+- url: https://mcp.cloudeagle.ai/.well-known/oauth-protected-resource
+  http_status: 200
+  content_type: application/json
+  fetched: '2026-09-05'
+- url: https://mcp.cloudeagle.ai/.well-known/oauth-authorization-server
+  http_status: 200
+  content_type: application/json
+  fetched: '2026-09-05'
+- url: https://mcp.cloudeagle.ai/.well-known/openid-configuration
+  http_status: 200
+  content_type: application/json
+  fetched: '2026-09-05'
+- url: https://mcp.cloudeagle.ai/mcp
+  http_status: 401
+  method: POST tools/list
+  note: 'Body: {"error": "Missing auth token. Connect via the OAuth flow to authenticate."}. Endpoint live and OAuth-gated.'
+  fetched: '2026-09-05'
+- url: https://mcp.cloudeagle.ai/mcp
+  http_status: 401
+  method: POST initialize (protocolVersion 2025-06-18)
+  fetched: '2026-09-05'
+- url: https://mcp.cloudeagle.ai/authorize
+  http_status: 200
+  content_type: text/html
+  note: First-party "Connect to CloudEagle" tenant-id consent page.
+  fetched: '2026-09-05'
+- url: https://mcp.cloudeagle.ai/zzz-nope-12345
+  http_status: 401
+  note: Control probe — the 401 is a blanket deny, so no path is confirmable anonymously.
+  fetched: '2026-09-05'
+- url: https://mcp.cloudeagle.ai/.well-known/mcp.json
+  http_status: 404
+  fetched: '2026-09-05'
+
+notes:
+- >-
+  This is a REMOTE endpoint, not a stdio package. An agent can reach it today
+  over the network after an OAuth authorization-code + PKCE flow; nothing has to
+  be installed on a machine first. Both facts were established by probe.
+- >-
+  The server supports RFC 7591 dynamic client registration with public clients
+  (token_endpoint_auth_methods ["none"]), which is what lets an arbitrary MCP
+  client connect without a pre-provisioned client_id. That is a deliberate,
+  agent-friendly choice.
+- >-
+  The MCP server is undiscoverable from CloudEagle's own machine-readable
+  surface: mcp.cloudeagle.ai appears nowhere in https://www.cloudeagle.ai/llms.txt,
+  which otherwise lists 70+ pages. It was found by hostname probing and confirmed
+  against the launch blog post.
+
+maintainers:
+- FN: Kin Lane
+  email: kin@apievangelist.com

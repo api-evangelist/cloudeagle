@@ -1,0 +1,77 @@
+generated: '2026-09-05'
+method: searched
+source: https://www.cloudeagle.ai/product-update
+provider: CloudEagle.ai
+providerId: cloudeagle
+name: CloudEagle.ai Product Updates
+url: https://www.cloudeagle.ai/product-update
+description: >-
+  CloudEagle publishes a dated product-update log on its marketing site. It is a
+  PRODUCT changelog, not an API changelog: entries describe platform features and
+  new integrations, and none of them names an API version, an endpoint, a
+  breaking change or a deprecation. There is no separate API changelog or release
+  notes feed.
+scheme: date-only
+versioning: none
+current_version: null
+version_note: >-
+  Entries carry a calendar date only. No semantic version, no release tag, no
+  API version identifier appears anywhere.
+cadence_observed: >-
+  Roughly monthly through 2025, thinning to roughly quarterly across 2026
+  (Jan 31, Mar 10, Apr 30). Latest entry observed 2026-04-30.
+breaking_changes_flagged: false
+deprecations_flagged: false
+machine_readable: false
+feed: none observed
+
+entries:
+- date: '2026-04-30'
+  title: License Harvesting, App Traceability and Apps Outside SSO
+  breaking: false
+  api_relevant: unknown
+- date: '2026-03-10'
+  title: Smart Vendor Merge Automation, Access Reviews and AI Extraction Enhancements
+  breaking: false
+  api_relevant: unknown
+- date: '2026-01-31'
+  title: Copilot Usage Visibility, Configuration & Platform Updates, CLM Integration Enhancements
+  breaking: false
+  api_relevant: unknown
+- date: '2025-11-30'
+  title: Browser Plugin Visibility, SAP Concur and ZIP Integration
+  breaking: false
+  api_relevant: unknown
+- date: '2025-10-31'
+  title: Identity AI Apps, Browser Plugin Usage, Custom Integration and Enhanced Dashboard
+  breaking: false
+  api_relevant: unknown
+- date: '2025-08-27'
+  title: AI Recommendations, Access Reviews with Permissions and Contract Intelligence
+  breaking: false
+  api_relevant: unknown
+- date: '2025-07-30'
+  title: Enhanced Risk Evaluation, Smart Contract AI, and Partner-Ready Architecture
+  breaking: false
+  api_relevant: unknown
+- date: '2025-04-30'
+  title: AI-Powered Metadata Extraction and CrowdStrike Falcon Integration
+  breaking: false
+  api_relevant: unknown
+- date: '2025-03-31'
+  title: Multi-Timezone Deprovisioning and Customizable Access Request Workflows
+  breaking: false
+  api_relevant: unknown
+- date: '2025-02-28'
+  title: Time-Based Access Control, SafeBase, OneTrust and Lima Integration
+  breaking: false
+  api_relevant: unknown
+
+x-evidence:
+- url: https://www.cloudeagle.ai/product-update
+  http_status: 200
+  fetched: '2026-09-05'
+
+maintainers:
+- FN: Kin Lane
+  email: kin@apievangelist.com

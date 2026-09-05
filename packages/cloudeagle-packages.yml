@@ -1,0 +1,76 @@
+generated: '2026-09-05'
+method: searched
+source: >-
+  Registry metadata probes on 2026-09-05 of registry.npmjs.org (including a
+  registry-wide text search), pypi.org, and a GitHub code/repo search; plus
+  https://www.cloudeagle.ai/llms.txt and
+  https://www.cloudeagle.ai/blogs/mcp-server-saas-ai-identity-insights
+provider: CloudEagle.ai
+providerId: cloudeagle
+description: >-
+  CloudEagle publishes NO first-party client libraries, SDKs or CLI packages in
+  any public registry. This is a recorded absence backed by probes, not an
+  unchecked gap. NO SDKs pointer is emitted.
+package_count: 0
+official_package_count: 0
+packages: []
+
+probes:
+  npm:
+  - name: cloudeagle
+    status: 404
+    version: null
+    published: null
+  - name: cloudeagle-mcp
+    status: 404
+    version: null
+    published: null
+  - name: '@cloudeagle/mcp'
+    status: 404
+    version: null
+    published: null
+  - name: '@cloudeagle/sdk'
+    status: 404
+    version: null
+    published: null
+  - name: '@cloudeagle-ai/mcp'
+    status: 404
+    version: null
+    published: null
+  - search: https://registry.npmjs.org/-/v1/search?text=cloudeagle
+    total: 0
+    note: Registry-wide text search returns zero packages.
+  pypi:
+  - name: cloudeagle
+    status: 404
+    version: null
+    published: null
+  - name: cloudeagle-ai
+    status: 404
+    version: null
+    published: null
+  - name: cloudeagle-mcp
+    status: 404
+    version: null
+    published: null
+  not_probed_reason: >-
+    Maven Central, NuGet, pkg.go.dev, RubyGems, Packagist and crates.io were not
+    probed by name because no CloudEagle document, page or repository anywhere
+    names a client library in any language — there was no candidate to look up.
+  github:
+    org_found: false
+    note: >-
+      No CloudEagle-operated GitHub organisation was located. A GitHub repository
+      search for "cloudeagle" returns 182 results, all of them third-party
+      personal repos — candidate take-home assignments referencing CloudEagle as
+      the hiring company (e.g. "CloudEagle – DevOps Assignment", "SpringBoot
+      Assignment"). None is first-party and none was used for anything.
+
+mcp_distribution:
+  note: >-
+    CloudEagle's MCP server is a REMOTE endpoint, not a stdio package — there is
+    nothing to install. See mcp/cloudeagle-mcp.yml.
+
+maintainers:
+- FN: Kin Lane
+  email: kin@apievangelist.com

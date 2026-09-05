@@ -25,7 +25,7 @@ accessModel:
   generated: '2026-07-22'
   method: derived
 created: '2026-03-16'
-modified: '2026-04-27'
+modified: '2026-09-05'
 specificationVersion: '0.23'
 type: Index
 access: 3rd-Party
@@ -43,18 +43,19 @@ tags:
   - Software Procurement
   - Vendor Management
 description: >-
-  CloudEagle.ai is an AI-powered SaaS management and procurement platform
-  that helps IT, security, finance, and procurement teams discover,
-  govern, optimize, and renew their SaaS and AI application portfolio.
-  The platform offers application discovery via 500+ direct integrations
-  with SSO, HRIS, finance, and CASB systems; license harvesting and
-  spend optimization; identity and access governance with automated
-  access reviews; onboarding/offboarding automation; SaaS procurement
-  and renewal orchestration; and shadow IT/shadow AI detection.
-  CloudEagle exposes an enterprise API to programmatically access these
-  capabilities for partners and customers; specific endpoint paths and
-  authentication details are provided to customers via the in-product
-  developer settings rather than a public docs site.
+  CloudEagle.ai is an AI-powered SaaS management, procurement and identity
+  governance platform that helps IT, security, finance and procurement teams
+  discover, govern, optimize and renew their SaaS and AI application portfolio.
+  It offers application discovery via 500+ integrations with SSO, HRIS, finance
+  and CASB systems; license harvesting and spend optimization; access governance
+  with automated access reviews; onboarding/offboarding automation; procurement
+  and renewal orchestration; and shadow IT/shadow AI detection. CloudEagle
+  exposes an enterprise API at api.cloudeagle.ai whose endpoints and credentials
+  are provisioned to customers in-product rather than on a public docs site, and
+  it operates a live OAuth-protected Model Context Protocol server at
+  mcp.cloudeagle.ai that lets teams query their SaaS, AI, licence, contract and
+  identity data from Claude, ChatGPT, Gemini or Copilot. That MCP server is the
+  only machine-readable surface CloudEagle publishes.
 apis:
   - aid: cloudeagle:cloudeagle-api
     name: CloudEagle API
@@ -66,6 +67,7 @@ apis:
       - Vendor Management
     image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
     humanURL: https://www.cloudeagle.ai/
+    baseURL: https://api.cloudeagle.ai
     properties:
       - url: https://www.cloudeagle.ai/blogs/enterprise-api-and-saas-management
         type: Reference
@@ -73,6 +75,12 @@ apis:
         type: Integrations
       - url: https://www.cloudeagle.ai/
         type: Documentation
+      - url: authentication/cloudeagle-authentication.yml
+        type: Authentication
+      - url: conventions/cloudeagle-conventions.yml
+        type: Conventions
+      - url: errors/cloudeagle-problem-types.yml
+        type: ErrorCatalog
     description: >-
       The CloudEagle API is an enterprise REST surface that exposes the
       same SaaS-management primitives as the web app: discovered
@@ -83,6 +91,36 @@ apis:
       credentials is provisioned to customer tenants and partners via
       account-level settings, and integration documentation is shared
       directly with onboarded customers.
+  - aid: cloudeagle:cloudeagle-mcp
+    name: CloudEagle.ai MCP Server
+    tags:
+      - Access Governance
+      - License Management
+      - SaaS Management
+      - Shadow AI
+      - Vendor Management
+    image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+    humanURL: https://www.cloudeagle.ai/blogs/mcp-server-saas-ai-identity-insights
+    baseURL: https://mcp.cloudeagle.ai
+    properties:
+      - url: mcp/cloudeagle-mcp.yml
+        type: MCPServer
+      - url: authentication/cloudeagle-authentication.yml
+        type: Authentication
+      - url: well-known/cloudeagle-well-known.yml
+        type: WellKnown
+      - url: https://www.cloudeagle.ai/blogs/mcp-server-saas-ai-identity-insights
+        type: Documentation
+    description: >-
+      A live, OAuth-protected Model Context Protocol server CloudEagle serves
+      from its own hostname mcp.cloudeagle.ai, letting IT, security, finance and
+      procurement teams query their live SaaS, AI-application, licence, contract
+      and identity data from Claude, ChatGPT, Gemini or Copilot. It is a remote
+      endpoint — an MCP client connects over the network after an OAuth 2.0
+      authorization-code + PKCE flow with dynamic client registration; there is
+      no package to install. Access is scoped to a single CloudEagle tenant,
+      chosen by subdomain at the consent step. The tool list is auth-gated and
+      has not been enumerated; CloudEagle publishes no tool reference.
 common:
   - type: DomainSecurity
     url: security/cloudeagle-domain-security.yml
@@ -98,6 +136,44 @@ common:
     url: https://www.cloudeagle.ai/product/saas-management
   - type: PrivacyPolicy
     url: https://www.cloudeagle.ai/privacy-policy
+  - type: TermsOfService
+    url: https://www.cloudeagle.ai/terms-and-conditions
+  - type: Pricing
+    url: https://www.cloudeagle.ai/pricing
+  - type: Blog
+    url: https://www.cloudeagle.ai/blogs
+  - type: Support
+    url: https://www.cloudeagle.ai/contact
+  - type: SignUp
+    url: https://www.cloudeagle.ai/free-trial
+  - type: GettingStarted
+    url: https://www.cloudeagle.ai/how-it-works
+  - type: Compliance
+    url: https://www.cloudeagle.ai/compliance/soc-2
+  - type: LLMsTxt
+    url: llms/cloudeagle-llms.txt
+  - type: WellKnown
+    url: well-known/cloudeagle-well-known.yml
+  - type: MCPServer
+    url: mcp/cloudeagle-mcp.yml
+  - type: Authentication
+    url: authentication/cloudeagle-authentication.yml
+  - type: Conventions
+    url: conventions/cloudeagle-conventions.yml
+  - type: ErrorCatalog
+    url: errors/cloudeagle-problem-types.yml
+  - type: Conformance
+    url: conformance/cloudeagle-conformance.yml
+  - type: ChangeLog
+    url: changelog/cloudeagle-changelog.yml
+  - type: Lifecycle
+    url: lifecycle/cloudeagle-lifecycle.yml
+  - type: Packages
+    url: packages/cloudeagle-packages.yml
+  - type: Plans
+    url: plans/cloudeagle-plans-pricing.yml
+  - type: RateLimits
+    url: rate-limits/cloudeagle-rate-limits.yml
 integrations:
   - name: Analytics Platforms
   - name: Cloud services
@@ -123,3 +199,8 @@ integrations:
 maintainers:
   - FN: Kin Lane
     email: kin@apievangelist.com
+x-enrichment:
+  date: '2026-09-05'
+  status: enriched
+  artifacts_added: 13
+  pass: local-v3

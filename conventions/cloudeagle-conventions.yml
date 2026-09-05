@@ -1,0 +1,124 @@
+generated: '2026-09-05'
+method: probed
+source: >-
+  Live probes of https://api.cloudeagle.ai/ and https://mcp.cloudeagle.ai/ on
+  2026-09-05 + https://www.cloudeagle.ai/llms.txt +
+  https://www.cloudeagle.ai/blogs/mcp-server-saas-ai-identity-insights
+provider: CloudEagle.ai
+providerId: cloudeagle
+description: >-
+  Cross-cutting runtime semantics for CloudEagle's API surface. CloudEagle
+  publishes no OpenAPI, no developer portal and no reference documentation, so
+  almost every dimension below is UNDOCUMENTED rather than absent — the honest
+  finding is that an integrator cannot learn these rules without a tenant. Only
+  what was actually observed on the wire, or stated by CloudEagle in public, is
+  recorded as known.
+
+auth:
+  style: >-
+    Two surfaces, two models. The MCP server uses OAuth 2.0 authorization-code +
+    PKCE with dynamic client registration; the REST API uses a tenant-generated
+    API token whose transport is not published.
+  see: authentication/cloudeagle-authentication.yml
+
+error_envelope:
+  observed: true
+  media_type: application/json
+  rfc9457: false
+  shape:
+    status: integer HTTP status, repeated in the body
+    message: short human string
+    data: string or object payload; mirrors message on auth failures
+    requestId: correlation id, null when unauthenticated
+  example_observed: '{"status":401,"message":"Not authorized","data":"Not authorized","requestId":null}'
+  note: >-
+    Captured from a live anonymous GET of https://api.cloudeagle.ai/. It is NOT
+    RFC 9457 problem+json — no type, title, detail or instance members, and the
+    content-type is application/json. The full catalogue of codes is undocumented.
+  see: errors/cloudeagle-problem-types.yml
+
+request_id_tracing:
+  supported: true
+  field: requestId
+  location: response body
+  header: none observed
+  note: >-
+    A requestId member is present in the error envelope, so the platform does
+    carry a correlation id. It was null on the unauthenticated probe and no
+    corresponding response header (X-Request-Id, X-Correlation-Id) was returned.
+
+idempotency:
+  coverage: none
+  mechanism: null
+  header: null
+  scope: []
+  note: >-
+    No idempotency mechanism is documented anywhere public — no Idempotency-Key
+    header, no client-supplied request key, no replay window. With no reference
+    documentation there is nothing an agent can rely on to avoid double-firing a
+    write. Recorded as none rather than na because CloudEagle's product plainly
+    performs writes (provisioning, deprovisioning, licence reclamation, access
+    approvals), so replay protection is applicable and simply not published.
+
+reversibility:
+  state: undocumented
+  grade: null
+  write_surfaces_have_reversals: unknown
+  reversals: []
+  note: >-
+    CloudEagle's product performs consequential, hard-to-undo writes — revoking
+    a user's access to every SaaS application at offboarding, reclaiming
+    licences, approving or denying access requests, deprovisioning accounts. NO
+    reversal operation, undo path, restore window or grace period is documented
+    on any public CloudEagle surface, and no operationId exists to name because
+    there is no published contract. This is deliberately left ungraded rather
+    than scored: asserting a window CloudEagle has not stated could cost a user
+    real access. An agent operating this API today cannot know whether an
+    offboarding it triggers can be taken back.
+  applicable: true
+
+dry_run_mode:
+  supported: unknown
+  note: Undocumented. No sandbox, test mode or simulation surface is published.
+
+pagination:
+  style: undocumented
+  params: []
+  response_fields: []
+  note: No pagination convention is published and none was observable anonymously.
+
+versioning:
+  scheme: undocumented
+  in_path: unknown
+  header: none observed
+  note: >-
+    No API version appears in any public CloudEagle material. The changelog
+    (https://www.cloudeagle.ai/product-update) is dated-only and carries no
+    version numbers.
+  see: lifecycle/cloudeagle-lifecycle.yml
+
+rate_limit_signaling:
+  headers_observed: []
+  documented: false
+  note: >-
+    No RateLimit-*, X-RateLimit-* or Retry-After header was returned on any
+    observed response, and no limits are published.
+  see: rate-limits/cloudeagle-rate-limits.yml
+
+field_expansion:
+  supported: unknown
+sparse_fieldsets:
+  supported: unknown
+metadata_fields:
+  supported: unknown
+
+webhooks:
+  documented: false
+  note: >-
+    No webhook, event or streaming surface is documented publicly. CloudEagle
+    integrates outbound into Slack, Jira, Coupa and help desks, but publishes no
+    subscriber-facing event catalogue, so no asyncapi/ artifact was written.
+
+maintainers:
+- FN: Kin Lane
+  email: kin@apievangelist.com

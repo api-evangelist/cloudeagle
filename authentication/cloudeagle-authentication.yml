@@ -1,0 +1,92 @@
+generated: '2026-09-05'
+method: probed
+source: >-
+  https://mcp.cloudeagle.ai/.well-known/oauth-authorization-server +
+  https://mcp.cloudeagle.ai/.well-known/oauth-protected-resource +
+  live probes of https://api.cloudeagle.ai/ +
+  https://www.cloudeagle.ai/blogs/mcp-server-saas-ai-identity-insights
+provider: CloudEagle.ai
+providerId: cloudeagle
+description: >-
+  CloudEagle publishes no OpenAPI and no public developer reference, so this
+  profile is built from the discovery documents CloudEagle actually serves and
+  from live probes of its API host — not from a specification. Two distinct
+  authenticated surfaces exist and they do NOT share an auth model.
+
+schemes:
+
+- id: mcp-oauth2
+  surface: CloudEagle.ai MCP Server (https://mcp.cloudeagle.ai)
+  type: oauth2
+  flow: authorizationCode
+  pkce:
+    required: true
+    methods: [S256]
+  issuer: https://mcp.cloudeagle.ai
+  authorization_endpoint: https://mcp.cloudeagle.ai/authorize
+  token_endpoint: https://mcp.cloudeagle.ai/token
+  registration_endpoint: https://mcp.cloudeagle.ai/register
+  dynamic_client_registration: true
+  client_authentication: none
+  client_type: public
+  scopes: []
+  scopes_note: >-
+    The authorization-server metadata advertises no scopes_supported and
+    CloudEagle documents no permission model. An integrator cannot request
+    least-privilege access; the grant appears to be all-or-nothing at tenant
+    level.
+  bearer_transport: unconfirmed
+  bearer_note: >-
+    The 401 carries no WWW-Authenticate header, so the expected bearer
+    presentation method is not advertised. RFC 6750 Authorization: Bearer is the
+    reasonable assumption but was NOT confirmed and is not asserted.
+  tenant_binding: >-
+    Authorization begins with a tenant chooser — /authorize asks for the
+    subdomain the operator signs in with (e.g. acme from acme.cloudeagle.ai) —
+    so a token is scoped to one CloudEagle tenant.
+  evidence:
+  - url: https://mcp.cloudeagle.ai/.well-known/oauth-authorization-server
+    http_status: 200
+  - url: https://mcp.cloudeagle.ai/.well-known/oauth-protected-resource
+    http_status: 200
+  - url: https://mcp.cloudeagle.ai/authorize
+    http_status: 200
+
+- id: enterprise-api-token
+  surface: CloudEagle enterprise REST API (https://api.cloudeagle.ai)
+  type: apiKey
+  in: unconfirmed
+  name: unconfirmed
+  description: >-
+    CloudEagle states that the MCP connector is authorised "with an API token
+    generated from your CloudEagle tenant", which is the only public statement
+    about how the REST surface is credentialled. The header or parameter the
+    token is presented in is NOT published and was NOT confirmed — nothing is
+    asserted about it here.
+  key_issuance: In-product, per tenant. Not self-service on a public developer portal.
+  evidence:
+  - url: https://api.cloudeagle.ai/
+    http_status: 401
+    note: >-
+      Returns {"status":401,"message":"Not authorized","data":"Not authorized",
+      "requestId":null}. A control path that does not exist
+      (/zzz-does-not-exist-9876) returns the identical 401, so the host denies
+      everything anonymously and reveals no scheme.
+  - url: https://www.cloudeagle.ai/blogs/mcp-server-saas-ai-identity-insights
+    http_status: 200
+    note: '"Authorize with an API token generated from your CloudEagle tenant."'
+
+not_found:
+- mutualTLS
+- openIdConnect
+- http-basic
+- http-bearer-documented
+openid_connect_note: >-
+  mcp.cloudeagle.ai answers /.well-known/openid-configuration with a 200, but the
+  body is byte-identical to its OAuth 2.0 authorization-server metadata. There is
+  no jwks_uri, userinfo_endpoint, subject_types_supported or id_token_signing_alg,
+  so this is NOT an OpenID Connect provider and must not be treated as one.
+
+maintainers:
+- FN: Kin Lane
+  email: kin@apievangelist.com

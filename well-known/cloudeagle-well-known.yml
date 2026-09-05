@@ -1,0 +1,156 @@
+generated: '2026-09-05'
+method: probed
+source: >-
+  Live anonymous probes on 2026-09-05 of every host this record knows —
+  cloudeagle.ai, www.cloudeagle.ai, api.cloudeagle.ai, login.cloudeagle.ai and
+  mcp.cloudeagle.ai — for /.well-known/security.txt, /openid-configuration,
+  /oauth-authorization-server, /oauth-protected-resource, /api-catalog,
+  /ai-plugin.json, /agent-card.json and /agent.json.
+note: >-
+  UPGRADE over earlier rounds, which recorded no /.well-known/ discovery for this
+  company. That remains true of the marketing host (www.cloudeagle.ai answers 404
+  with an HTML shell on every path) and of the tenant login host. It is NOT true
+  of the company: mcp.cloudeagle.ai serves three real, parsing JSON discovery
+  documents — RFC 8414 authorization-server metadata, RFC 9728 protected-resource
+  metadata, and an OIDC-shaped copy of the former — that advertise CloudEagle's
+  OAuth-protected Model Context Protocol server. Those are genuine 200s carrying
+  real documents, so a WellKnown pointer is warranted this round. No security.txt
+  is served on any host, so NO SecurityTxt pointer is emitted. No agent card is
+  served on any host, so NO AgentCard pointer and no a2a/ artifact were written.
+  api.cloudeagle.ai answers 401 on EVERY path including a control path that does
+  not exist (/zzz-does-not-exist-9876 -> 401), so its 401s are a blanket deny and
+  are NOT evidence that any particular document is being withheld.
+
+hosts:
+
+- host: mcp.cloudeagle.ai
+  role: >-
+    CloudEagle's remote Model Context Protocol server and its own OAuth
+    authorization server. Carries the only machine-readable discovery documents
+    CloudEagle serves anywhere.
+  documents:
+  - path: /.well-known/oauth-authorization-server
+    status: 200
+    content_type: application/json
+    file: cloudeagle-oauth-authorization-server.json
+    real_document: true
+    summary: >-
+      RFC 8414 metadata. issuer https://mcp.cloudeagle.ai; authorization_endpoint
+      /authorize; token_endpoint /token; registration_endpoint /register (RFC 7591
+      dynamic client registration); response_types [code]; grant_types
+      [authorization_code]; PKCE S256 required; token_endpoint_auth_methods [none]
+      (public client). No scopes_supported is advertised.
+  - path: /.well-known/oauth-protected-resource
+    status: 200
+    content_type: application/json
+    file: cloudeagle-oauth-protected-resource.json
+    real_document: true
+    summary: >-
+      RFC 9728 metadata. resource https://mcp.cloudeagle.ai; authorization_servers
+      ["https://mcp.cloudeagle.ai"] — the MCP server is its own issuer.
+  - path: /.well-known/openid-configuration
+    status: 200
+    content_type: application/json
+    file: cloudeagle-openid-configuration.json
+    real_document: true
+    summary: >-
+      Byte-identical to the RFC 8414 document above. It is OAuth 2.0
+      authorization-server metadata served at the OIDC path, not an OpenID
+      Connect provider configuration — there is no jwks_uri, no userinfo_endpoint,
+      no subject_types_supported and no id_token signing algorithms, so an OIDC
+      relying party cannot use it as-is.
+  - path: /.well-known/agent-card.json
+    status: 404
+  - path: /.well-known/agent.json
+    status: 404
+  - path: /.well-known/security.txt
+    status: 404
+  - path: /.well-known/api-catalog
+    status: 404
+  - path: /.well-known/ai-plugin.json
+    status: 404
+  - path: /.well-known/mcp.json
+    status: 404
+
+- host: www.cloudeagle.ai
+  role: Marketing and content host. Serves llms.txt, robots.txt and sitemap.xml.
+  documents:
+  - path: /.well-known/security.txt
+    status: 404
+  - path: /.well-known/openid-configuration
+    status: 404
+  - path: /.well-known/oauth-authorization-server
+    status: 404
+  - path: /.well-known/api-catalog
+    status: 404
+  - path: /.well-known/ai-plugin.json
+    status: 404
+  - path: /.well-known/agent-card.json
+    status: 404
+  - path: /.well-known/agent.json
+    status: 404
+
+- host: api.cloudeagle.ai
+  role: >-
+    Live API host on CloudEagle's own wildcard certificate (CN=*.cloudeagle.ai,
+    Amazon RSA 2048 M04). Returns a structured JSON API error envelope, not a web
+    page — but the deny is blanket, so nothing here is a positive finding.
+  documents:
+  - path: /.well-known/security.txt
+    status: 401
+    real_document: false
+    note: Blanket deny — a control path that does not exist returns the same 401.
+  - path: /.well-known/openid-configuration
+    status: 401
+    real_document: false
+  - path: /.well-known/oauth-authorization-server
+    status: 401
+    real_document: false
+  - path: /.well-known/oauth-protected-resource
+    status: 401
+    real_document: false
+  - path: /.well-known/api-catalog
+    status: 401
+    real_document: false
+  - path: /.well-known/ai-plugin.json
+    status: 401
+    real_document: false
+  - path: /.well-known/agent-card.json
+    status: 401
+    real_document: false
+  - path: /.well-known/agent.json
+    status: 401
+    real_document: false
+
+- host: login.cloudeagle.ai
+  role: Tenant sign-in host. help.cloudeagle.ai 307-redirects here.
+  documents:
+  - path: /.well-known/openid-configuration
+    status: 404
+  - path: /.well-known/oauth-authorization-server
+    status: 404
+  - path: /.well-known/security.txt
+    status: 404
+  - path: /.well-known/agent-card.json
+    status: 404
+  - path: /.well-known/agent.json
+    status: 404
+  - path: /.well-known/api-catalog
+    status: 404
+  - path: /.well-known/ai-plugin.json
+    status: 404
+
+hosts_not_resolving:
+- docs.cloudeagle.ai
+- developer.cloudeagle.ai
+- developers.cloudeagle.ai
+- app.cloudeagle.ai
+- api-docs.cloudeagle.ai
+- status.cloudeagle.ai
+- trust.cloudeagle.ai
+- support.cloudeagle.ai
+- security.cloudeagle.ai
+
+maintainers:
+- FN: Kin Lane
+  email: kin@apievangelist.com

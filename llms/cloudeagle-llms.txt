@@ -1,0 +1,123 @@
+# CloudEagle.ai
+
+> CloudEagle.ai is an AI-powered SaaS Management and Identity Governance platform that helps IT, Security, Finance, and Procurement teams discover, govern, optimize, and procure their SaaS and AI applications from a single unified platform. Backed by Y Combinator, recognized in the 2025 Gartner® Magic Quadrant™ for SaaS Management Platforms and the 2026 Gartner® Market Guide for Software Asset Management Tools, and rated 4.7 on G2. CloudEagle connects to 500+ apps out of the box — delivering feature-level usage insights, automated access governance, and AI-powered contract intelligence. Customers typically save 10–30% on SaaS spend within days of onboarding. CloudEagle is SOC 2, ISO 27001, HIPAA, GDPR, PCI DSS, and SOX compliant.
+
+
+## Product Hubs
+
+- [SaaS Management](https://www.cloudeagle.ai/product/saas-management): Achieve 100% visibility into your SaaS stack. Detect shadow IT, eliminate duplicate and unused apps, automate license reclamation, and replace spreadsheets with accurate real-time license and contract tracking. Customers save 10–30% on software spend.
+- [SaaS Procurement](https://www.cloudeagle.ai/product/saas-procurement): Manage the full procurement lifecycle from intake to renewal. Access the world's largest SaaS benchmarking database and buying guides, automate approval workflows via Slack or Jira, and negotiate confidently with peer pricing intelligence.
+- [SaaS Security & Compliance](https://www.cloudeagle.ai/product/saas-security-and-compliance): Enforce least-privilege access across every SaaS app. Continuously monitor privileged users, automate user access reviews, detect shadow IT and unauthorized app usage, and generate SOC 2–ready audit logs automatically.
+- [Identity Governance](https://www.cloudeagle.ai/product/identity-governance): Automate the full employee access lifecycle across SCIM and non-SCIM apps. Provision birthright access on day one, enable self-service app requests via Slack, and instantly revoke all access at offboarding with a complete audit trail.
+- [AI Governance](https://www.cloudeagle.ai/product/ai-governance): Continuously discover AI tools and agents as they appear in your environment. Block unauthorized AI access in real time, track Copilot and AI app ROI, and give security and leadership teams board-level visibility into AI usage and data exposure.
+
+## SaaS Management — Sub-pages
+
+- [License Management](https://www.cloudeagle.ai/saas-management/license-management): Automated license management and harvesting platform. Track every license across your SaaS stack with feature-level usage data, automatically reclaim unused seats, and eliminate waste — without spreadsheets.
+- [Contract Management](https://www.cloudeagle.ai/saas-management/contract-management): AI-powered contract metadata extraction and management. Centralize all SaaS contracts, auto-populate renewal dates and opt-out clauses, and never get caught by an auto-renewal again.
+- [Application Rationalization](https://www.cloudeagle.ai/saas-management/application-rationalization): Identify and eliminate redundant and underutilized apps across your portfolio. Get a clear view of overlapping tools, consolidate vendors, and reduce your SaaS footprint with data-backed decisions.
+
+## SaaS Procurement — Sub-pages
+
+- [Price Benchmarking & Buying Guides](https://www.cloudeagle.ai/saas-procurement/price-benchmarking-buying-guides): See exactly what your peers pay for Salesforce, Slack, Microsoft 365, and hundreds of other SaaS tools. Use the world's largest benchmarking dataset to negotiate smarter and stop overpaying.
+- [Procurement Workflows & Orchestration](https://www.cloudeagle.ai/saas-procurement/procurement-workflows-orchestration): Automate intake-to-approval procurement workflows with no-code drag-and-drop builders. Route requests through the right stakeholders via Slack, Jira, Coupa, or Ironclad — with full audit trails.
+- [Renewal Calendar](https://www.cloudeagle.ai/saas-procurement/renewal-calendar): Auto-built renewal calendar powered by AI contract metadata extraction. Get alerted 90 days before renewals with usage insights and benchmark pricing pre-populated, so teams can act — not react.
+
+## SaaS Security & Compliance — Sub-pages
+
+- [Shadow AI & Shadow IT](https://www.cloudeagle.ai/saas-security-compliance/ai-governance-shadow-it): Continuously discover unsanctioned apps and AI tools employees add outside IT's purview. Get full visibility into shadow usage, assess data exposure risk, and enforce policy before incidents occur.
+- [Excessive Privileged Users](https://www.cloudeagle.ai/saas-security-compliance/excessive-privileged-users): Identify users with admin or elevated permissions that exceed their role requirements. Continuously monitor privilege levels across all connected apps and right-size access automatically.
+- [User Access Reviews](https://www.cloudeagle.ai/saas-security-compliance/user-access-reviews): Automate periodic access certification campaigns across your SaaS stack. Replace manual spreadsheet-based reviews with AI-assisted workflows that cut review time by 80% and generate audit-ready evidence.
+
+## Identity Governance — Sub-pages
+
+- [Self-Service App Catalog](https://www.cloudeagle.ai/identity-governance/self-service-app-catalog): Give employees a Slack-native app catalog to request access to approved tools instantly — without opening an IT ticket. IT teams define policies; employees self-serve within guardrails.
+- [Employee Onboarding & Offboarding](https://www.cloudeagle.ai/identity-governance/jml-onboarding-offboarding): Automate joiner, mover, and leaver workflows across all SaaS apps. New hires get role-based birthright access the moment HR updates their status; departing employees are fully deprovisioned instantly.
+- [Automate App Access Requests](https://www.cloudeagle.ai/identity-governance/automate-app-access-requests): Replace email chains and IT tickets with structured, automated app access request workflows. Route approvals to the right managers, enforce time-bound access, and log every decision for compliance.
+
+## Key Pages
+
+- [Integrations](https://www.cloudeagle.ai/integrations): 500+ pre-built connectors covering SSO, HRIS, finance, help desk, CLM, and SaaS apps — delivering feature-level usage data, not just login signals.
+- [Pricing](https://www.cloudeagle.ai/pricing): Transparent flat pricing with no custom development required. Customers go live in under 30 minutes.
+- [How It Works](https://www.cloudeagle.ai/how-it-works): Step-by-step overview of how CloudEagle connects, analyzes, and automates SaaS management from day one.
+- [Customers](https://www.cloudeagle.ai/customers): Trusted by IT, Security, and Procurement teams at RingCentral, ICEYE, Bloom & Wild, Falkonry, Treasure Data, and more.
+- [Slack Integration](https://www.cloudeagle.ai/slack-integration): Raise and approve app access requests, renewals, and procurement workflows directly inside Slack — no new tool adoption required.
+
+## Solutions by Persona
+
+- [IT](https://www.cloudeagle.ai/itops): Full SaaS stack visibility, app rationalization, and governance — without spreadsheets.
+- [Security](https://www.cloudeagle.ai/it-and-security): Enforce least-privilege access, eliminate security blind spots, and stay audit-ready.
+- [Finance](https://www.cloudeagle.ai/finance): Control SaaS spending, reduce waste, and get full contract and renewal visibility.
+- [Procurement](https://www.cloudeagle.ai/procurement): Cut software spending with benchmarking data and automated renewal workflows.
+- [IT Asset Managers](https://www.cloudeagle.ai/it-asset-management): Reclaim licenses and track usage at the feature level — no spreadsheets needed.
+- [FinOps](https://www.cloudeagle.ai/finops-for-saas): Optimize software spend and reduce operational waste with continuous SaaS intelligence.
+
+## Solutions by Industry
+
+- [IT](https://www.cloudeagle.ai/industry/cloudeagle-for-it)
+- [Healthcare](https://www.cloudeagle.ai/industry/cloudeagle-for-healthcare)
+- [Fintech](https://www.cloudeagle.ai/industry/cloudeagle-for-fintech)
+- [Education](https://www.cloudeagle.ai/industry/cloudeagle-for-education)
+- [KPMG](https://www.cloudeagle.ai/industry/cloudeagle-for-kpmg)
+- [Manufacturing](https://www.cloudeagle.ai/industry/cloudeagle-for-manufacturing)
+- [Telecommunications](https://www.cloudeagle.ai/industry/cloudeagle-for-telecommunications)
+
+## Comparisons
+
+- [CloudEagle vs Zylo](https://www.cloudeagle.ai/comparisons/cloudeagle-vs-zylo)
+- [CloudEagle vs Productiv](https://www.cloudeagle.ai/comparisons/cloudeagle-vs-productiv)
+- [CloudEagle vs Lumos](https://www.cloudeagle.ai/comparisons/cloudeagle-vs-lumos)
+- [CloudEagle vs BetterCloud](https://www.cloudeagle.ai/comparisons/cloudeagle-vs-bettercloud)
+- [CloudEagle vs Zluri](https://www.cloudeagle.ai/comparisons/cloudeagle-vs-zluri)
+- [CloudEagle vs Spendflo](https://www.cloudeagle.ai/comparisons/cloudeagle-vs-spendflo)
+- [CloudEagle vs Sastrify](https://www.cloudeagle.ai/comparisons/cloudeagle-vs-sastrify)
+- [CloudEagle vs Vendr](https://www.cloudeagle.ai/comparisons/cloudeagle-vs-vendr)
+- [CloudEagle vs Tropic](https://www.cloudeagle.ai/comparisons/cloudeagle-vs-tropic)
+- [CloudEagle vs Flexera](https://www.cloudeagle.ai/comparisons/cloudeagle-vs-flexera)
+- [CloudEagle vs ServiceNow](https://www.cloudeagle.ai/comparisons/cloudeagle-vs-servicenow)
+
+## Resources
+
+- [Glossary](https://www.cloudeagle.ai/resources/glossary): Definitions for SaaS management, identity governance, and IT governance terminology.
+- [Blogs](https://www.cloudeagle.ai/blogs): Practical guides and thought leadership on SaaS governance, access management, and software spend optimization.
+- [Case Studies](https://www.cloudeagle.ai/case-studies): Real-world results — $300K saved at ICEYE, 1,354 hours/year saved at Treasure Data, SOC 2 reports cut from months to 15 minutes.
+- [Reports](https://www.cloudeagle.ai/resources/guides-and-reports): Analyst reports and the 2025 "Invisible Apps, Hidden Insider Threats: The AI-Powered Future of IGA" survey.
+- [IGA Survey Report](https://www.cloudeagle.ai/iga-report): 2025 research on invisible apps and hidden insider threats in modern SaaS and AI environments.
+- [Benchmarking Guides](https://www.cloudeagle.ai/category/benchmarking-guides): Peer pricing benchmarks for Salesforce, Slack, Microsoft 365, and 100s of other SaaS tools.
+- [Webinars](https://www.cloudeagle.ai/webinar): On-demand sessions on shadow AI, access sprawl, SaaS cost reduction, and compliance automation.
+- [Podcasts](https://www.cloudeagle.ai/podcast): SaaS Masterminds podcast — CIO and CISO playbooks for reducing sprawl and governing AI.
+- [Product Walkthrough](https://www.cloudeagle.ai/product-walkthrough): Self-guided tour of the CloudEagle platform.
+- [Product Updates](https://www.cloudeagle.ai/product-update): Latest feature releases and platform improvements.
+- [E-books](https://www.cloudeagle.ai/resources/ebooks): In-depth resources on SaaS management and governance topics.
+- [News](https://www.cloudeagle.ai/news): Press coverage and analyst recognition.
+
+## Compliance & Security
+
+- [SOC 2](https://www.cloudeagle.ai/compliance/soc-2)
+- [ISO 27001](https://www.cloudeagle.ai/compliance/iso-27001)
+- [HIPAA](https://www.cloudeagle.ai/compliance/hipaa)
+- [GDPR](https://www.cloudeagle.ai/compliance/gdpr)
+- [PCI DSS](https://www.cloudeagle.ai/compliance/pci-dss)
+- [SOX](https://www.cloudeagle.ai/compliance/sox)
+
+## Company
+
+- [About Us](https://www.cloudeagle.ai/about-us)
+- [Careers](https://www.cloudeagle.ai/careers)
+- [Partners](https://www.cloudeagle.ai/partner)
+- [Contact Us](https://www.cloudeagle.ai/contact)
+- [How It Works](https://www.cloudeagle.ai/how-it-works)
+- [Book a Demo](https://www.cloudeagle.ai/book-a-demo)
+- [Free Trial](https://www.cloudeagle.ai/free-trial)
+
+## Legal
+
+- [Privacy Policy](https://www.cloudeagle.ai/privacy-policy)
+- [Terms of Service](https://www.cloudeagle.ai/terms-and-conditions)
+- [Evaluation Agreement Terms](https://www.cloudeagle.ai/evaluation-agreement-terms)
+
+## Marketplaces
+
+- [Azure Marketplace](https://azuremarketplace.microsoft.com/en-US/marketplace/apps/cloudeagle.cloudeagle)
+- [AWS Marketplace](https://aws.amazon.com/marketplace/pp/prodview-jvntuequsjjdk)
+

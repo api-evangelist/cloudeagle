@@ -1,0 +1,186 @@
+generated: '2026-09-05'
+method: probed
+source: >-
+  https://mcp.cloudeagle.ai/.well-known/oauth-authorization-server +
+  https://mcp.cloudeagle.ai/.well-known/oauth-protected-resource +
+  https://www.cloudeagle.ai/llms.txt + the CloudEagle compliance pages under
+  https://www.cloudeagle.ai/compliance/
+provider: CloudEagle.ai
+providerId: cloudeagle
+description: >-
+  Cross-cutting and domain standards CloudEagle's own surfaces demonstrate or
+  claim. Every `conforms: true` entry below is backed by a document CloudEagle
+  serves, not by a marketing sentence. Entries that are marketing claims only are
+  recorded with conforms: false and said so plainly.
+
+conformance:
+
+- id: oauth2
+  name: OAuth 2.0 (RFC 6749) authorization code grant
+  conforms: true
+  evidence: https://mcp.cloudeagle.ai/.well-known/oauth-authorization-server
+  detail: >-
+    grant_types_supported ["authorization_code"], response_types_supported
+    ["code"], authorization and token endpoints published.
+
+- id: rfc8414
+  name: OAuth 2.0 Authorization Server Metadata (RFC 8414)
+  conforms: true
+  evidence: https://mcp.cloudeagle.ai/.well-known/oauth-authorization-server
+  detail: A parsing JSON metadata document is served at the RFC 8414 well-known path.
+
+- id: rfc9728
+  name: OAuth 2.0 Protected Resource Metadata (RFC 9728)
+  conforms: partial
+  evidence: https://mcp.cloudeagle.ai/.well-known/oauth-protected-resource
+  detail: >-
+    The protected-resource document is served and names its authorization server,
+    but the resource's own 401 responses carry NO WWW-Authenticate challenge
+    header pointing at it, which is how RFC 9728 expects a client to find it.
+    Discoverable by convention only.
+
+- id: rfc7636
+  name: PKCE (RFC 7636)
+  conforms: true
+  evidence: https://mcp.cloudeagle.ai/.well-known/oauth-authorization-server
+  detail: code_challenge_methods_supported ["S256"].
+
+- id: rfc7591
+  name: OAuth 2.0 Dynamic Client Registration (RFC 7591)
+  conforms: true
+  evidence: https://mcp.cloudeagle.ai/.well-known/oauth-authorization-server
+  detail: >-
+    registration_endpoint https://mcp.cloudeagle.ai/register is advertised, with
+    token_endpoint_auth_methods_supported ["none"] — public clients may register
+    themselves, which is what lets an arbitrary MCP client connect.
+
+- id: oidc
+  name: OpenID Connect Discovery
+  conforms: false
+  evidence: https://mcp.cloudeagle.ai/.well-known/openid-configuration
+  detail: >-
+    A 200 is served at the OIDC discovery path, but the body is byte-identical to
+    the OAuth 2.0 metadata — no jwks_uri, userinfo_endpoint,
+    subject_types_supported or id_token_signing_alg_values_supported. It is not
+    an OIDC provider configuration and an RP cannot use it.
+
+- id: mcp
+  name: Model Context Protocol
+  conforms: true
+  evidence: https://mcp.cloudeagle.ai
+  detail: >-
+    A live remote MCP server over streamable HTTP, OAuth-protected, announced by
+    the provider. The tool surface is auth-gated and was not enumerated.
+  see: mcp/cloudeagle-mcp.yml
+
+- id: llmstxt
+  name: llms.txt
+  conforms: true
+  evidence: https://www.cloudeagle.ai/llms.txt
+  detail: >-
+    A well-formed llms.txt (12.4 KB) with an H1, a blockquote summary and
+    sectioned link lists covering 70+ pages. No llms-full.txt is served (404).
+
+- id: rfc9457
+  name: RFC 9457 Problem Details for HTTP APIs
+  conforms: false
+  evidence: https://api.cloudeagle.ai/
+  detail: >-
+    Errors are a vendor JSON envelope (status/message/data/requestId), served as
+    application/json, not application/problem+json.
+
+- id: idempotency
+  name: Idempotent write semantics
+  conforms: false
+  evidence: https://www.cloudeagle.ai/llms.txt
+  detail: >-
+    No idempotency key, replay window or safe-retry contract is documented on any
+    public CloudEagle surface.
+
+- id: pagination
+  name: Documented pagination convention
+  conforms: false
+  evidence: https://www.cloudeagle.ai/llms.txt
+  detail: No pagination convention is published; there is no public API reference at all.
+
+# ---------------------------------------------------------------------------
+# DOMAIN STANDARDS — the standards THIS market speaks (SaaS management, IGA)
+# ---------------------------------------------------------------------------
+domain_standards:
+
+- id: scim
+  name: SCIM 2.0 (RFC 7643 / RFC 7644)
+  conforms: false
+  claimed: true
+  evidence: https://www.cloudeagle.ai/identity-governance/jml-onboarding-offboarding
+  detail: >-
+    CloudEagle markets SCIM heavily — "Cover all your SCIM & non-SCIM apps",
+    "Automate the full employee access lifecycle across SCIM and non-SCIM apps" —
+    but that describes CloudEagle CONSUMING other vendors' SCIM endpoints as an
+    integration client. No evidence was found that CloudEagle SERVES a SCIM
+    service provider endpoint of its own: no /scim/v2 surface, no
+    ServiceProviderConfig, no urn:ietf:params:scim:schemas:* URN appears in any
+    published CloudEagle document, and there is no contract to inspect. Recorded
+    as a claim, not a conformance. This is the single highest-value standard
+    CloudEagle could publish for its market and the one an IGA buyer would look
+    for first.
+
+- id: sso-saml-oidc
+  name: SAML 2.0 / OIDC single sign-on integration
+  conforms: unknown
+  claimed: true
+  evidence: https://www.cloudeagle.ai/integrations
+  detail: >-
+    CloudEagle discovers applications by integrating with SSO providers. Whether
+    CloudEagle itself is a SAML service provider with published metadata could
+    not be established — no SP metadata document is served on any probed host.
+
+# ---------------------------------------------------------------------------
+# COMPLIANCE PROGRAM — published certification pages
+# ---------------------------------------------------------------------------
+compliance:
+  published: true
+  trust_center: none
+  trust_center_note: >-
+    No trust portal (SafeBase / Vanta / Drata / trust.* subdomain) was found;
+    trust.cloudeagle.ai and security.cloudeagle.ai do not resolve. Certifications
+    are asserted on marketing pages and in llms.txt, with no downloadable or
+    gated evidence surface located.
+  certifications:
+  - name: SOC 2
+    claimed: true
+    evidence: https://www.cloudeagle.ai/compliance/soc-2
+    http_status: 200
+  - name: ISO/IEC 27001
+    claimed: true
+    evidence: https://www.cloudeagle.ai/compliance/iso-27001
+    http_status: 200
+  - name: HIPAA
+    claimed: true
+    evidence: https://www.cloudeagle.ai/compliance/hipaa
+    http_status: 200
+  - name: GDPR
+    claimed: true
+    evidence: https://www.cloudeagle.ai/compliance/gdpr
+    http_status: 200
+  - name: PCI DSS
+    claimed: true
+    evidence: https://www.cloudeagle.ai/compliance/pci-dss
+    http_status: 200
+  - name: SOX
+    claimed: true
+    evidence: https://www.cloudeagle.ai/compliance/sox
+    http_status: 200
+
+vulnerability_disclosure:
+  published: false
+  detail: >-
+    No security.txt on any host, no /security or /trust-center page, no bug
+    bounty programme (HackerOne / Bugcrowd / Intigriti) and no named security
+    contact were found. Probed by all/0-working/probe-security-programs.py on
+    2026-09-05: vdp=none trust=none. No Security or VulnerabilityDisclosure
+    pointer is emitted.
+
+maintainers:
+- FN: Kin Lane
+  email: kin@apievangelist.com
