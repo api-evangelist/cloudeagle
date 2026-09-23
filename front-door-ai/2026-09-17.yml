@@ -1,0 +1,31 @@
+# Front Door AI Index — cloudeagle — 2026-09-17
+# AI vocabulary counted on the provider's root page. Generated; do not edit.
+# `score` is null unless ownership is `own` — see front_door_ai.py.
+front_door_ai:
+  slug: cloudeagle
+  lexicon_version: '1.0'
+  probed_at: '2026-09-17'
+  host: www.cloudeagle.ai
+  final_host: www.cloudeagle.ai
+  ownership: own
+  owner: cloudeagle
+  shares_host_with: null
+  inherited_from: null
+  verdict: scored
+  score: 96
+  host_score: 96
+  density: 36.67
+  words: 2618
+  tiers:
+    agentic: 5
+    core: 90
+    model: 1
+  ambiguous: 9
+  top_terms:
+    AI: 90
+    agent: 7
+    AI agent: 3
+    MCP: 2
+    ChatGPT: 1
+    automation: 1
+    smart: 1
