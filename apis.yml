@@ -25,7 +25,7 @@ accessModel:
   generated: '2026-07-22'
   method: derived
 created: '2026-03-16'
-modified: '2026-09-05'
+modified: '2026-10-06'
 specificationVersion: '0.23'
 type: Index
 access: 3rd-Party
@@ -122,6 +122,8 @@ apis:
       chosen by subdomain at the consent step. The tool list is auth-gated and
       has not been enumerated; CloudEagle publishes no tool reference.
 common:
+  - url: https://www.cloudeagle.ai/blogs/rss.xml
+    type: BlogRSS
   - type: DomainSecurity
     url: security/cloudeagle-domain-security.yml
   - type: LinkedIn
