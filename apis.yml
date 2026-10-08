@@ -122,6 +122,8 @@ apis:
       chosen by subdomain at the consent step. The tool list is auth-gated and
       has not been enumerated; CloudEagle publishes no tool reference.
 common:
+  - type: FinOps
+    url: finops/cloudeagle-finops.yml
   - url: https://www.cloudeagle.ai/blogs/rss.xml
     type: BlogRSS
   - type: DomainSecurity
