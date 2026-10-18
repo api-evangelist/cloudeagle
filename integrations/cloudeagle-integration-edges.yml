@@ -5,6 +5,7 @@ checked:
 - https://azuremarketplace.microsoft.com/
 - https://github.com/marketplace?type=apps
 - okta/integrations/okta-integration-edges.yml
+- zoom/integrations/zoom-integration-edges.yml
 marketplace_apps: []
 edges:
 - partner_name: AWS Marketplace
@@ -75,5 +76,22 @@ edges:
   features:
   - API
   - CUSTOM_SOM
+- partner_name: Zoom (own)
+  partner: zoom
+  partner_match: mirror
+  mirror_match: domain
+  type: marketplace
+  relationship: platform-app
+  direction: third-party
+  channel: partner-built
+  marketplace: own
+  evidence: https://marketplace.zoom.us/apps/rmzIl2gUSQCjml9SgotXEQ
+  mirror_of: zoom/integrations/zoom-integration-edges.yml
+  apps:
+  - CloudEagle
+  listing_count: 1
+  detected: '2026-10-18'
+  detected_by: mirror-platform-listings.py
+  category: Zoom app
 source:
 - https://github.com/marketplace?type=apps
