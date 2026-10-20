@@ -39,21 +39,6 @@ edges:
   seller_name: CloudEagle
   detected_by: sweep-cloud-marketplaces.py
   detected: '2026-10-13'
-- partner_name: GitHub Marketplace (apps)
-  partner: github
-  partner_match: aggregator
-  type: marketplace
-  marketplace: github-apps
-  channel: partner-built
-  relationship: platform-app
-  direction: third-party
-  evidence: https://github.com/marketplace/cloudeagle-ai
-  listing_count: 1
-  apps:
-  - cloudeagle.ai
-  publisher_name: cloudeagle.ai
-  detected_by: sweep-devtools.py
-  detected: '2026-10-14'
 - partner_name: Okta (own)
   partner: okta
   partner_match: mirror
