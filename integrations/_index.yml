@@ -53,3 +53,15 @@
   relationship: platform-app
   status: not-a-workflow
   arazzo: null
+- slug: cloudeagle-github-own
+  label: GitHub (own)
+  partner: github
+  partner_name: GitHub (own)
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  evidence: https://github.com/marketplace/cloudeagle-ai
+  source: edge
+  relationship: platform-app
+  status: not-a-workflow
+  arazzo: null
