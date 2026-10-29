@@ -1,4 +1,4 @@
-# CloudEagle.ai (cloudeagle)
+# CloudEagle.ai
 
 <!-- API-EVANGELIST-PROVENANCE:BEGIN -->
 > ### About this repository
@@ -64,53 +64,119 @@
 > Full detail: **[Where this data comes from](https://apievangelist.com/about/where-our-data-comes-from)**
 <!-- API-EVANGELIST-PROVENANCE:END -->
 
-CloudEagle.ai is an AI-powered SaaS management and procurement platform that helps IT, security, finance, and procurement teams discover, govern, optimize, and renew their SaaS and AI application portfolio. The platform offers application discovery via 500+ direct integrations, license harvesting, identity and access governance, onboarding/offboarding automation, procurement orchestration, and shadow IT/shadow AI detection.
+CloudEagle.ai is an AI-powered SaaS management, procurement and identity governance platform that helps IT, security, finance and procurement teams discover, govern, optimize and renew their SaaS and AI application portfolio. It offers application discovery via 500+ integrations with SSO, HRIS, finance and CASB systems; license harvesting and spend optimization; access governance with automated access reviews; onboarding/offboarding automation; procurement and renewal orchestration; and shadow IT/shadow AI detection. CloudEagle exposes an enterprise API at api.cloudeagle.ai whose endpoints and credentials are provisioned to customers in-product rather than on a public docs site, and it operates a live OAuth-protected Model Context Protocol server at mcp.cloudeagle.ai that lets teams query their SaaS, AI, licence, contract and identity data from Claude, ChatGPT, Gemini or Copilot. That MCP server is the only machine-readable surface CloudEagle publishes.
 
-**URL:** [Visit APIs.json URL](https://raw.githubusercontent.com/api-evangelist/cloudeagle/refs/heads/main/apis.yml)
+**Areas:** Access Governance · Cost Optimization · License Management · Procurement · SaaS Management · Shadow AI · Shadow IT · Software Procurement · Vendor Management
 
-## Scope
+## CloudEagle.ai on APIs.io
 
-- **Type:** Index
-- **Position:** Consumer
-- **Access:** 3rd-Party
+Everything profiled for CloudEagle.ai is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/cloudeagle/](https://apis.io/providers/cloudeagle/)** — or go straight to one of the APIs or properties below.
 
-## Tags
+### APIs (2)
 
-- Access Governance, Cost Optimization, License Management, Procurement, SaaS Management, Shadow AI, Shadow IT, Software Procurement, Vendor Management
+- [CloudEagle API](https://apis.io/apis/cloudeagle/cloudeagle-api/) — The CloudEagle API is an enterprise REST surface that exposes the same SaaS-management primitives as the web app: discovered applications, licenses and…
+- [CloudEagle.ai MCP Server](https://apis.io/apis/cloudeagle/cloudeagle-mcp/) — A live, OAuth-protected Model Context Protocol server CloudEagle serves from its own hostname mcp.cloudeagle.ai, letting IT, security, finance and…
 
-## Timestamps
+### Published properties
 
-- **Created:** 2026-03-16
-- **Modified:** 2026-04-27
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
 
-## APIs
+#### MCP servers (1)
 
-### CloudEagle API
-The CloudEagle API is an enterprise REST surface that exposes the same SaaS-management primitives as the web app: discovered applications, licenses and usage, identity and access state, onboarding/offboarding workflows, vendor and contract records, and procurement workflows. CloudEagle does not publish a fully open developer portal; access to API specifications and credentials is provisioned to customer tenants and partners via account-level settings, and integration documentation is shared directly with onboarded customers.
+Model Context Protocol servers that expose the API to agents.
 
-**Human URL:** [https://www.cloudeagle.ai/](https://www.cloudeagle.ai/)
+- [CloudEagle.ai MCP Server](https://apis.io/servers/cloudeagle/cloudeagle-ai-mcp-server/)
 
-#### Tags
+#### Security (2)
 
-- Access Governance, License Management, SaaS Management, Software Procurement, Vendor Management
+Authentication, trust centre, and vulnerability disclosure.
 
-#### Properties
+- [Cloudeagle Authentication](https://apis.io/security/cloudeagle/cloudeagle-authentication/)
+- [Cloudeagle Domain Security](https://apis.io/security/cloudeagle/cloudeagle-domain-security/)
 
-- [Reference](https://www.cloudeagle.ai/blogs/enterprise-api-and-saas-management)
-- [Integrations](https://www.cloudeagle.ai/integrations)
-- [Documentation](https://www.cloudeagle.ai/)
+#### Plans and pricing (1)
 
-## Common Properties
+Published plans, tiers and prices.
+
+- [Cloudeagle Plans Pricing](https://apis.io/plans/cloudeagle/cloudeagle-plans-pricing/)
+
+#### Rate limits (1)
+
+Published request limits.
+
+- [Cloudeagle Rate Limits](https://apis.io/rate-limits/cloudeagle/cloudeagle-rate-limits/)
+
+#### FinOps (1)
+
+What the API costs to run, by operation.
+
+- [Cloudeagle Finops](https://apis.io/finops/cloudeagle/cloudeagle-finops/)
+
+## Where to find this API
+
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
 
 - [Website](https://www.cloudeagle.ai/)
-- [Integrations](https://www.cloudeagle.ai/integrations)
-- [Resources](https://www.cloudeagle.ai/resources/guides-and-reports)
-- [SaaS Management Product](https://www.cloudeagle.ai/product/saas-management)
-- [Privacy Policy](https://www.cloudeagle.ai/privacy-policy)
-- [Naftiko Capabilities](capabilities/cloudeagle-capabilities.yml)
+- [Getting started](https://www.cloudeagle.ai/how-it-works)
+- [Pricing](https://www.cloudeagle.ai/pricing)
+- [Sign up](https://www.cloudeagle.ai/free-trial)
+- [Support](https://www.cloudeagle.ai/contact)
+- [Blog](https://www.cloudeagle.ai/blogs)
+- [Compliance](https://www.cloudeagle.ai/compliance/soc-2)
+- [Terms of service](https://www.cloudeagle.ai/terms-and-conditions)
+- [Privacy policy](https://www.cloudeagle.ai/privacy-policy)
 
-## Maintainers
+## API Evangelist rating
 
-**FN:** Kin Lane
+**Kin Score 33.9** — thin · rubric 0.25.0 · scored 2026-10-23
 
-**Email:** kin@apievangelist.com
+| Facet | Score |
+|---|---|
+| Discoverability | 75.0 |
+| Contract quality | 0.0 |
+| Contract governance | 18.2 |
+| Operational transparency | 15.8 |
+| Developer ergonomics | 47.6 |
+| Access clarity | 52.6 |
+
+**Agent readiness 27.6** — agent-aware
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | — |
+| Agentic Access | — |
+| Reversibility Documented | — |
+| MCP Server | documented (partial credit) |
+| Auth Clarity | served (partial credit) |
+| Idempotency | — |
+| Error Semantics | documented (partial credit) |
+| OpenAPI Examples | — |
+| Rate Limit Signal | documented (partial credit) |
+| Event Surface Described | — |
+| Agent Skills | — |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | served (partial credit) |
+| Protected Resource Metadata | verified |
+| Dynamic Client Registration | yes |
+| Agentic Commerce | — |
+| Pagination Ratio | na |
+| Operation Distinctiveness | na |
+
+**Regulatory alignment 29.4** — Horizontal (data, software, accessibility, platform)
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/cloudeagle/](https://apis.io/providers/cloudeagle/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for CloudEagle.ai: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/cloudeagle/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
